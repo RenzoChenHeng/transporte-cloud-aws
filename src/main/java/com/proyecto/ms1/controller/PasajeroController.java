@@ -45,7 +45,6 @@ public class PasajeroController {
         return pasajeroService.obtenerPasajero(id);
     }
 
-    // Usado por MS4 para resolver con qué tarjeta(s) cuenta un pasajero
     @GetMapping("/{id}/tarjetas")
     public List<TarjetaResponse> obtenerTarjetasDePasajero(@PathVariable Long id) {
         return tarjetaService.obtenerTarjetasPorPasajero(id);

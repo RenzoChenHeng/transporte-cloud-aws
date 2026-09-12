@@ -7,7 +7,5 @@ import java.util.List;
 
 public interface TarjetaRepository extends JpaRepository<Tarjeta, Long> {
 
-    // Query derivada automáticamente del nombre del método:
-    // Spring Data JPA genera el SQL "SELECT * FROM tarjeta WHERE pasajero_id = ?"
     List<Tarjeta> findByPasajeroId(Long pasajeroId);
 }

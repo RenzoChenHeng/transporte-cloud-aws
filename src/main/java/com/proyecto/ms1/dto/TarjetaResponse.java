@@ -15,7 +15,7 @@ public class TarjetaResponse {
     private Long id;
     private Long pasajeroId;
     private LocalDate fechaEmision;
-    private LocalDate fechaVencimiento;   // puede ser null
+    private LocalDate fechaVencimiento;
     private TipoTarjeta tipo;
     private BigDecimal saldo;
 }

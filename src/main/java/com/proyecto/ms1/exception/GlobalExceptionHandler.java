@@ -24,7 +24,6 @@ public class GlobalExceptionHandler {
                 .body(Map.of("detail", ex.getMessage()));
     }
 
-    // Captura errores de @NotBlank, @NotNull, @Past en los DTO (validación automática de Spring)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleBeanValidation(MethodArgumentNotValidException ex) {
         Map<String, String> errores = new HashMap<>();

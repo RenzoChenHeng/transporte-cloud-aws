@@ -50,3 +50,21 @@ public class PasajeroService {
                 .orElseThrow(() -> new NotFoundException("Pasajero " + id + " no encontrado"));
 
         pasajero.setNombre(request.getNombre());
+        pasajero.setFechaNacimiento(request.getFechaNacimiento());
+        pasajero.setSexo(request.getSexo());
+        pasajero.setDistrito(request.getDistrito());
+
+        return toResponse(pasajeroRepository.save(pasajero));
+    }
+
+    public void eliminarPasajero(Long id) {
+        if (!pasajeroRepository.existsById(id)) {
+            throw new NotFoundException("Pasajero " + id + " no encontrado");
+        }
+        pasajeroRepository.deleteById(id);
+    }
+
+    private PasajeroResponse toResponse(Pasajero p) {
+        return new PasajeroResponse(p.getId(), p.getNombre(), p.getFechaNacimiento(), p.getSexo(), p.getDistrito());
+    }
+}

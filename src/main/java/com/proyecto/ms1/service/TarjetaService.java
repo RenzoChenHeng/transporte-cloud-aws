@@ -2,6 +2,7 @@ package com.proyecto.ms1.service;
 
 import com.proyecto.ms1.dto.TarjetaRequest;
 import com.proyecto.ms1.dto.TarjetaResponse;
+import com.proyecto.ms1.dto.TarjetaUpdateRequest;
 import com.proyecto.ms1.exception.NotFoundException;
 import com.proyecto.ms1.model.Pasajero;
 import com.proyecto.ms1.model.Tarjeta;
@@ -49,7 +50,6 @@ public class TarjetaService {
                 .toList();
     }
 
-    // Usado por PasajeroController: GET /pasajeros/{id}/tarjetas
     public List<TarjetaResponse> obtenerTarjetasPorPasajero(Long pasajeroId) {
         if (!pasajeroRepository.existsById(pasajeroId)) {
             throw new NotFoundException("Pasajero " + pasajeroId + " no encontrado");
@@ -63,7 +63,6 @@ public class TarjetaService {
     Tarjeta tarjeta = tarjetaRepository.findById(id)
             .orElseThrow(() -> new NotFoundException("Tarjeta " + id + " no encontrada"));
 
-    // tipo y fecha_vencimiento son inmutables una vez creada la tarjeta
     tarjeta.setSaldo(request.getSaldo());
 
     return toResponse(tarjetaRepository.save(tarjeta));

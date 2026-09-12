@@ -27,7 +27,7 @@ public class Tarjeta {
     private LocalDate fechaEmision;
 
     @Column(name = "fecha_vencimiento", nullable = true)
-    private LocalDate fechaVencimiento;   // null para REGULAR y PERSONA_CON_DISCAPACIDAD
+    private LocalDate fechaVencimiento;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
