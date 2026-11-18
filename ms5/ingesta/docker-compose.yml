@@ -1,0 +1,18 @@
+services:
+  ingesta-ms1:
+    build: ./ingesta-ms1
+    env_file:
+      - ./ingesta-ms1/.env
+    restart: "no"
+
+  ingesta-ms2:
+    build: ./ingesta-ms2
+    env_file:
+      - ./ingesta-ms2/.env
+    restart: "no"
+
+  ingesta-ms3:
+    build: ./ingesta-ms3
+    env_file:
+      - ./ingesta-ms3/.env
+    restart: "no"
